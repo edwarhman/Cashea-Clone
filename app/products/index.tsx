@@ -1,13 +1,12 @@
 import ProductsListContainer from "@/components/ProductsListContainer";
 import { StyleSheet } from "react-native";
-import { products } from '../db/products.json';
+import { products } from '../../db/products.json';
 import { ThemedView } from "@/components/ThemedView";
-import { ThemedText } from "@/components/ThemedText";
 
-export default function Index() {
+export default function ProductsPage() {
   return (
     <ThemedView style={styles.container}>
-      <ThemedText>HOME PAGE</ThemedText>
+      <ProductsListContainer products={products} />
     </ThemedView>
   );
 }
