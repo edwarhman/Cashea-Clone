@@ -6,7 +6,7 @@ import { Colors } from '@/constants/Colors';
 export type ThemedTextProps = TextProps & {
   lightColor?: string;
   darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'advertisement-button';
+  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link' | 'primary-button' | 'advertisement-button';
 };
 
 export function ThemedText({
@@ -17,18 +17,20 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const fontFamily = 'Inter_400Regular';
+  const fontFamily = 'Inter_400Regular, system-ui, system, sans-serif';
 
   return (
     <Text
       style={[
         { color },
         { fontFamily },
+        styles.default,
         type === 'default' ? styles.default : undefined,
         type === 'title' ? styles.title : undefined,
         type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
         type === 'subtitle' ? styles.subtitle : undefined,
         type === 'link' ? styles.link : undefined,
+        type === 'primary-button' ? styles.primaryButton : undefined,
         type === 'advertisement-button' ? styles.advertisementButton : undefined,
         style,
       ]}
@@ -60,6 +62,10 @@ const styles = StyleSheet.create({
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+  },
+  primaryButton: {
+    fontWeight: 'bold',
+    color: Colors.global.black
   },
   advertisementButton: {
     fontSize: 18,

@@ -23,6 +23,11 @@ export const Colors = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
+  global: {
+    brand: 'orange',
+    primary: '#0a7ea4',
+    black: '#111',
+  },
   advertisement: {
     primary: '#fff',
     secondary: '#ccc',
