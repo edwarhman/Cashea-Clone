@@ -4,21 +4,32 @@ import { ThemedText } from "@/components/ThemedText";
 import { Feather } from '@expo/vector-icons';
 import AvailableBalanceContainer from "@/components/AvailableBalanceContainer";
 import Advertisement from "@/components/AdvertisementBox";
+import Section from "@/components/Section";
+import ThemedButton from "@/components/ThemedButton";
 
 export default function Index() {
   return (
     <ThemedView style={styles.container}>
-      {/* buscador */}
-      <View style={styles.search}>
-        <Feather style={styles.searchIcon} name="search" size={24} color="black" />
-        <ThemedText darkColor='#222' type="defaultSemiBold" >¿Qué necesitas comprar?</ThemedText>
-      </View>
-
-      <AvailableBalanceContainer />
-      
-      <View style={styles.advertisementContainer}>
-        <Advertisement />
-      </View>
+      <Section>
+        <View style={styles.search}>
+          <Feather style={styles.searchIcon} name="search" size={24} color="black" />
+          <ThemedText darkColor='#222' type="defaultSemiBold" >¿Qué necesitas comprar?</ThemedText>
+        </View>
+      </Section>
+      <Section>
+        <AvailableBalanceContainer />
+      </Section>
+      <Section>
+        <View style={styles.advertisementContainer}>
+          <Advertisement />
+        </View>
+      </Section>
+      <Section>
+        <View style={styles.sectionHeader}>
+          <ThemedText type="subtitle">Lo que necesitas</ThemedText>
+          <ThemedButton title="Ver más" type="primary" />
+        </View>
+      </Section>
     </ThemedView>
   );
 }
@@ -43,5 +54,10 @@ const styles = StyleSheet.create({
   advertisementContainer: {
     marginTop: 20,
     marginHorizontal: 15
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
   },
 });
