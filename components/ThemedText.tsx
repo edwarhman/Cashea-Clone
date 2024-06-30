@@ -65,6 +65,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     color: Colors.advertisement.secondary,
-    fontWeight: 'semibold'
+    fontWeight: 'bold'
   },
 });
