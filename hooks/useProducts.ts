@@ -1,11 +1,20 @@
 import { API_URL } from "@/constants/API";
 import { useState } from "react";
 
-export default function useProducts() {
+
+type QueryOptions = {
+  page?: number,
+  itemsPerPage?: number,
+}
+
+export default function useProducts({
+  page = 1,
+  itemsPerPage = 10
+}: QueryOptions) {
 
   const [products, setProducts] = useState([]);
-  const [page, setPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setPage] = useState(page);
+  const [itemsPerEachPage, setItemsPerPage] = useState(itemsPerPage);
   const [loading, setLoading] = useState(true)
 
   function getProducts({search} : {search: string}) { 
@@ -20,9 +29,9 @@ export default function useProducts() {
 
   return {
     products,
-    currentPage: page,
+    currentPage,
     isLoading: loading,
-    itemsPerPage,
+    itemsPerPage: itemsPerEachPage,
     setPage,
     setItemsPerPage,
     getProducts

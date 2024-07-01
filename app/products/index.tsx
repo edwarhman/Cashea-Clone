@@ -9,7 +9,9 @@ import { ActivityIndicator } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
 
 export default function ProductsPage() {
-  const { products, getProducts, isLoading } = useProducts();
+  const { products, getProducts, isLoading } = useProducts({
+    itemsPerPage: 25
+  });
 
   useEffect(() => {
     getProducts({search: ''});
