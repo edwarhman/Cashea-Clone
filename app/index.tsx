@@ -1,15 +1,18 @@
-import { StyleSheet, View } from "react-native";
-import { ThemedView } from "@/components/ThemedView";
+import { ScrollView, StyleSheet, View } from "react-native";
 import { ThemedText } from "@/components/ThemedText";
 import { Feather } from '@expo/vector-icons';
 import AvailableBalanceContainer from "@/components/AvailableBalanceContainer";
 import Advertisement from "@/components/AdvertisementBox";
 import Section from "@/components/Section";
 import ThemedButton from "@/components/ThemedButton";
+import { products } from "../db/products.json";
+import ProductCard from "@/components/ProductCard";
+import { List } from "react-native-paper";
+import ThemedAccordion, { ThemedListItem } from "@/components/ThemedAcordion";
 
 export default function Index() {
   return (
-    <ThemedView style={styles.container}>
+    <ScrollView style={styles.container}>
       <Section>
         <View style={styles.search}>
           <Feather style={styles.searchIcon} name="search" size={24} color="black" />
@@ -26,11 +29,31 @@ export default function Index() {
       </Section>
       <Section>
         <View style={styles.sectionHeader}>
-          <ThemedText type="subtitle">Lo que necesitas</ThemedText>
+          <ThemedText type="subtitle">Destacados</ThemedText>
           <ThemedButton title="Ver más" type="primary" />
         </View>
+        <ScrollView horizontal>
+          {
+            products.map((product: any) => (
+              <View style={{ margin: 12, marginBottom: 18, flexShrink: 10, width: 300 }} key={product.id}>
+                <ProductCard bordered product={product} />
+              </View>
+            ))
+          }
+        </ScrollView>
       </Section>
-    </ThemedView>
+      <Section>
+        <View style={styles.sectionHeader}>
+          <ThemedText type="subtitle">Preguntas frecuentes</ThemedText>
+        </View>
+        <List.Section>
+          <ThemedAccordion title='Uncontrolled Accordion'>
+            <ThemedListItem title='First item'/>
+            <ThemedListItem title='Second item'/>
+          </ThemedAccordion>
+        </ List.Section>
+      </Section>
+    </ScrollView>
   );
 }
 
