@@ -7,8 +7,15 @@ export default function AdvertisementBox() {
 
     return(
       <View style={styles.advertisement}>
-        <ThemedText darkColor={Colors.advertisement.secondary}>Paga solo la inicial</ThemedText>
-        <ThemedText type="defaultSemiBold">Llevate tu producto</ThemedText>
+        <ThemedText 
+          darkColor={Colors.advertisement.secondary}
+          lightColor={Colors.advertisement.secondary}
+        >Paga solo la inicial</ThemedText>
+        <ThemedText
+         type="defaultSemiBold"
+         lightColor={Colors.advertisement.primary}
+         darkColor={Colors.advertisement.primary}
+        >Llevate tu producto</ThemedText>
         <View style={styles.button}>
           <ThemedButton
             title="Compra ya"
