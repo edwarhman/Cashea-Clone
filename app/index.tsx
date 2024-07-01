@@ -47,9 +47,17 @@ export default function Index() {
           <ThemedText type="subtitle">Preguntas frecuentes</ThemedText>
         </View>
         <List.Section>
-          <ThemedAccordion title='Uncontrolled Accordion'>
-            <ThemedListItem title='First item'/>
-            <ThemedListItem title='Second item'/>
+          <ThemedAccordion title='¿Cómo funciona?'>
+            <ThemedListItem title='Somos una compañía tecnológica que en alianza con su red de tiendas, te permite comprar tus productos y poder pagarlo en cómodas cuotas.'/>
+          </ThemedAccordion>
+          <ThemedAccordion title='¿Donde puedo aplicar para comprar?'>
+            <ThemedListItem title='Puedes aplicar desde la comodidad de tu casa descargando la app de la tienda. También puedes aplicar desde cualquiera de nuestras tiendas aliadas.'/>
+          </ThemedAccordion>
+          <ThemedAccordion title='¿Cúanto debo pagar de abono inicial?'>
+            <ThemedListItem title='El abono inicial requerido es del 40% al 60% del precio de la compra, dependiendo de tu nivel.'/>
+          </ThemedAccordion>
+          <ThemedAccordion title='¿Cada cúanto tiempo debo pagar mis cuotas?'>
+            <ThemedListItem title='Las cuotas deben pagarse de manera quincenal.'/>
           </ThemedAccordion>
         </ List.Section>
       </Section>
