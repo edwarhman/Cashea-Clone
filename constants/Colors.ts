@@ -9,11 +9,13 @@ const tintColorDark = '#fff';
 export const Colors = {
   light: {
     text: '#11181C',
-    background: '#fff',
+    background: '#f6f6f6',
     tint: tintColorLight,
     icon: '#687076',
     tabIconDefault: '#687076',
     tabIconSelected: tintColorLight,
+    productCardBackground: '#fff',
+    shadow: '#eee',
   },
   dark: {
     text: '#ECEDEE',
@@ -22,6 +24,8 @@ export const Colors = {
     icon: '#9BA1A6',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
+    productCardBackground: '#181818',
+    shadow: '#111',
   },
   global: {
     brand: 'orange',
