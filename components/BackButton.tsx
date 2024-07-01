@@ -1,7 +1,7 @@
 import { useThemeColor } from "@/hooks/useThemeColor";
 import { Feather } from "@expo/vector-icons";
-import { Link, router } from "expo-router";
-import { StyleSheet, Touchable, TouchableHighlight } from "react-native";
+import { router } from "expo-router";
+import { StyleSheet, TouchableWithoutFeedback } from "react-native";
 
 export default function BackButton() {
     const color = useThemeColor({}, 'icon');
@@ -11,9 +11,9 @@ export default function BackButton() {
     }
 
     return(
-        <TouchableHighlight onPress={goBack}>
+        <TouchableWithoutFeedback onPress={goBack}>
             <Feather style={styles.container} name="chevron-left" size={24} color={color} />
-        </TouchableHighlight>
+        </TouchableWithoutFeedback>
     )
 }
 
