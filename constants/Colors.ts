@@ -31,6 +31,7 @@ export const Colors = {
     brand: 'orange',
     primary: '#0a7ea4',
     black: '#111',
+    white: '#fff',
   },
   advertisement: {
     primary: '#fff',
