@@ -17,7 +17,7 @@ export function ThemedText({
   ...rest
 }: ThemedTextProps) {
   const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-  const fontFamily = 'Inter_400Regular, system-ui, system, sans-serif';
+  const fontFamily = 'Inter_400Regular';
 
   return (
     <Text
