@@ -5,13 +5,23 @@ import AvailableBalanceContainer from "@/components/AvailableBalanceContainer";
 import Advertisement from "@/components/AdvertisementBox";
 import Section from "@/components/Section";
 import ThemedButton from "@/components/ThemedButton";
-import { products } from "../db/products.json";
 import ProductCard from "@/components/ProductCard";
 import { List } from "react-native-paper";
 import ThemedAccordion, { ThemedListItem } from "@/components/ThemedAcordion";
 import { Link, router } from "expo-router";
+import useProducts from "@/hooks/useProducts";
+import { useEffect } from "react";
 
 export default function Index() {
+
+  const {products, getProducts} = useProducts({})
+
+  useEffect(() => {
+    getProducts({
+      search: ''
+    })
+  }, [])
+
   return (
     <ScrollView style={styles.container}>
       <Section>
