@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.edwarhman.cashea clone"
+      "package": "com.edwarhman.cashea-clone"
     },
     "web": {
       "bundler": "metro",
