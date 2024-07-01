@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.anonymous.firstmobileapp"
+      "package": "com.edwarhman.cashea clone"
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +32,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "f17ac79d-b7ff-4539-81ff-07564dcbb43d"
+      }
     }
   }
 }
