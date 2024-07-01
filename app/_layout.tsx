@@ -1,4 +1,3 @@
-import Header from "@/components/Header";
 import { ThemedView } from "@/components/ThemedView";
 import { useFonts } from "expo-font";
 import { Slot } from "expo-router";
@@ -40,7 +39,6 @@ export default function RootLayout() {
   return (
     <PaperProvider theme={theme}>
       <ThemedView style={styles.container}>
-        <Header />
         <Slot />
       </ThemedView>
     </PaperProvider>
