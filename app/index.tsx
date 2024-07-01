@@ -15,12 +15,12 @@ export default function Index() {
   return (
     <ScrollView style={styles.container}>
       <Section>
-          <Link href="/products">
-        <View style={styles.search}>
-            <Feather style={styles.searchIcon} name="search" size={24} color="black" />
-            <ThemedText darkColor='#222' type="defaultSemiBold" >¿Qué necesitas comprar?</ThemedText>
-        </View>
+        <View>
+          <Link style={styles.search} href="/products">
+              <Feather style={styles.searchIcon} name="search" size={24} color="black" />
+              <ThemedText darkColor='#222' type="defaultSemiBold" > ¿Qué necesitas comprar?</ThemedText>
           </Link>
+        </View>
       </Section>
       <Section>
         <AvailableBalanceContainer />
@@ -75,9 +75,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   search: {
-    width: '100%',
     flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: '#ddd',
     padding: 12,
     alignItems: 'center',

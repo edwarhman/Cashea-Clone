@@ -1,8 +1,7 @@
 import { Colors } from "@/constants/Colors";
 import { Feather } from "@expo/vector-icons";
 import { Controller, Form, useForm } from "react-hook-form";
-import { StyleSheet, View } from "react-native";
-import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { StyleSheet, TouchableWithoutFeedback, View } from "react-native";
 import { TextInput } from "react-native-paper";
 
 export type SearchBarProps = {
@@ -26,6 +25,7 @@ export default function SearchBar({ value = '',  onSearch }: SearchBarProps) {
                         style={styles.searchBar}
                         value={value}
                         onChangeText={onChange}
+                        onSubmitEditing={handleSubmit(onSearch)}
                     />
                 )}
             />
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     },
     searchBar: {
         flex: 1,
+        padding: 0,
         backgroundColor: Colors.global.white,
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
