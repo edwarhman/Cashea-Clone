@@ -4,6 +4,7 @@ import { ThemedView } from "@/components/ThemedView";
 import SearchBar from "@/components/SearchBar";
 import useProducts from "@/hooks/useProducts";
 import { useEffect } from "react";
+import BackButton from "@/components/BackButton";
 
 export default function ProductsPage() {
   const { products, getProducts } = useProducts();
@@ -14,8 +15,11 @@ export default function ProductsPage() {
   
   return (
     <ThemedView style={styles.container}>
-      <View style={styles.searchBar}>
-        <SearchBar onSearch={getProducts} />
+      <View style={styles.head}>
+        <BackButton />
+        <View style={styles.searchBar}>
+          <SearchBar onSearch={getProducts} />
+        </View>
       </View>
       <ProductsListContainer products={products} />
     </ThemedView>
@@ -28,7 +32,17 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     margin: 12,
   },
-  searchBar: {
+  head: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     marginBottom: 16,
-  }
+  },
+  searchBar: {
+    flexGrow: 1,
+  },
+  backwardIcon: {
+    marginRight: 10,
+    marginLeft: 10,
+  },
 });
