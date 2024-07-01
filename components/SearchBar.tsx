@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
     searchBar: {
         flex: 1,
         backgroundColor: Colors.global.white,
+        borderTopLeftRadius: 10,
+        borderBottomLeftRadius: 10,
     },
     searchIcon: {
         marginHorizontal: 10

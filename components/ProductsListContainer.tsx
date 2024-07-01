@@ -16,7 +16,7 @@ export default function ProductsList ({
       data={products}
       renderItem={({item: product}) => (
         <View style={styles.listItem} key={product.id}>
-          <ProductCard product={product} />
+          <ProductCard bordered product={product} />
         </View>
       )}
     />
@@ -25,8 +25,6 @@ export default function ProductsList ({
 
 const styles = StyleSheet.create({
   listItem: {
-    margin: 12,
     marginBottom: 18,
-
   }
 })
