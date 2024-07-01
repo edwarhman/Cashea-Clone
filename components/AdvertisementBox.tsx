@@ -3,7 +3,12 @@ import ThemedButton from "./ThemedButton";
 import { ThemedText } from "./ThemedText";
 import { StyleSheet, View } from "react-native";
 
-export default function AdvertisementBox() {
+export type AdvertisementBoxProps = {
+  onPress?: () => void;
+}
+export default function AdvertisementBox({
+  onPress,
+}: AdvertisementBoxProps) {
 
     return(
       <View style={styles.advertisement}>
@@ -20,7 +25,7 @@ export default function AdvertisementBox() {
           <ThemedButton
             title="Compra ya"
             type="advertisement"
-            onPress={()=> {alert('Wow you are awesome')}}
+            onPress={onPress}
           />
         </View>
       </View>

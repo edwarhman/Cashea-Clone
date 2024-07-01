@@ -9,22 +9,25 @@ import { products } from "../db/products.json";
 import ProductCard from "@/components/ProductCard";
 import { List } from "react-native-paper";
 import ThemedAccordion, { ThemedListItem } from "@/components/ThemedAcordion";
+import { Link, router } from "expo-router";
 
 export default function Index() {
   return (
     <ScrollView style={styles.container}>
       <Section>
+          <Link href="/products">
         <View style={styles.search}>
-          <Feather style={styles.searchIcon} name="search" size={24} color="black" />
-          <ThemedText darkColor='#222' type="defaultSemiBold" >¿Qué necesitas comprar?</ThemedText>
+            <Feather style={styles.searchIcon} name="search" size={24} color="black" />
+            <ThemedText darkColor='#222' type="defaultSemiBold" >¿Qué necesitas comprar?</ThemedText>
         </View>
+          </Link>
       </Section>
       <Section>
         <AvailableBalanceContainer />
       </Section>
       <Section>
         <View style={styles.advertisementContainer}>
-          <Advertisement />
+          <Advertisement onPress={()=> {router.navigate('/products')}}/>
         </View>
       </Section>
       <Section>
@@ -72,6 +75,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   search: {
+    width: '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: '#ddd',
