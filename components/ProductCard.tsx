@@ -1,40 +1,68 @@
-import { StyleSheet, Image, Text, } from 'react-native'
+import { StyleSheet, Image, Text, View, } from 'react-native'
 import { ThemedText } from './ThemedText'
-import { ThemedView } from './ThemedView'
+import { useThemeColor } from '@/hooks/useThemeColor';
 
+type ProductCardProps = {
+  product: any;
+  bordered?: boolean;
+}
 
-export default function ProductItem ({
-  product
-}: any) {
-    return (
-    <ThemedView style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: product.thumbnail
-        }}
-      />
-      <ThemedView style={styles.body}>
-        <ThemedText type='title' >{product.title}</ThemedText>
-        <ThemedText>{product.description}</ThemedText>
-        <ThemedText>{product.brand}</ThemedText>
-      </ThemedView>
-    </ThemedView>
+export default function ProductCard({
+  product,
+  bordered: rounded = false
+}: ProductCardProps) {
+  const backgroundColor = useThemeColor({}, 'productCardBackground');
+  const shadowColor = useThemeColor({}, 'shadow');
+
+  return (
+    <View style={[
+      rounded ? { borderRadius: 15 } : undefined,
+      styles.container,
+      { shadowColor, shadowRadius: 10 }
+    ]}>
+      <View
+        style={[
+          { backgroundColor },
+          styles.imageContainer
+        ]}
+      >
+        <Image
+          style={styles.image}
+          source={{
+            uri: product.thumbnail
+          }}
+        />
+      </View>
+      <View
+        style={[
+          { backgroundColor },
+          styles.body
+        ]}
+      >
+        <ThemedText type='subtitle' >{'$' + product.price}</ThemedText>
+        <ThemedText darkColor='#555' lightColor='#aaa' >{product.brand}</ThemedText>
+        <ThemedText
+          numberOfLines={1}
+          type='defaultBold'
+        >{product.title + ' - ' + product.description}</ThemedText>
+      </View>
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
-    borderColor: '#555',
-    borderWidth: 1,
-    borderRadius: 15
   },
   image: {
-    width: '100%',
     aspectRatio: 1
   },
+  imageContainer: {
+    elevation: 2,
+  },
   body: {
+    marginTop: 6,
     padding: 12,
+    elevation: 2,
   }
 })
