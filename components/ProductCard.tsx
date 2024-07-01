@@ -29,7 +29,7 @@ export default function ProductCard({
         <Image
           style={styles.image}
           source={{
-            uri: product.thumbnail
+            uri: product.images[0]
           }}
         />
       </View>
