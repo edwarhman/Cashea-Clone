@@ -6,6 +6,7 @@ import { StyleSheet } from "react-native";
 import { DefaultTheme, PaperProvider } from "react-native-paper";
 import * as SplashScreen from "expo-splash-screen";
 import { Inter_400Regular } from "@expo-google-fonts/inter";
+import Constants from "expo-constants";
 
 const theme = {
   ...DefaultTheme,
@@ -38,15 +39,21 @@ export default function RootLayout() {
 
   return (
     <PaperProvider theme={theme}>
+      <ThemedView style={styles.root}>
       <ThemedView style={styles.container}>
         <Slot />
+      </ThemedView>
       </ThemedView>
     </PaperProvider>
   );
 }
 
 const styles = StyleSheet.create({
+  root: {
+    flex: 1
+  },
   container: {
+    marginTop: Constants.statusBarHeight,
     flex: 1
   }
 })

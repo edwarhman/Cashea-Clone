@@ -21,6 +21,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     flexDirection: 'row',
-    marginTop: Constants.statusBarHeight
   },
 });
