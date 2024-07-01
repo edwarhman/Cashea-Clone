@@ -43,7 +43,7 @@ export default function Index() {
       <Section>
         <View style={styles.sectionHeader}>
           <ThemedText type="subtitle">Destacados</ThemedText>
-          <ThemedButton title="Ver más" type="primary" />
+          <ThemedButton onPress={()=> {router.navigate('/products')}} title="Ver más" type="primary" />
         </View>
         <ScrollView horizontal>
           {
