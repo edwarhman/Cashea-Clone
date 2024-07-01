@@ -5,14 +5,16 @@ import SearchBar from "@/components/SearchBar";
 import useProducts from "@/hooks/useProducts";
 import { useEffect } from "react";
 import BackButton from "@/components/BackButton";
+import { ActivityIndicator } from "react-native-paper";
+import { ThemedText } from "@/components/ThemedText";
 
 export default function ProductsPage() {
-  const { products, getProducts } = useProducts();
+  const { products, getProducts, isLoading } = useProducts();
 
   useEffect(() => {
     getProducts({search: ''});
   }, []);
-  
+
   return (
     <ThemedView style={styles.container}>
       <View style={styles.head}>
@@ -21,7 +23,17 @@ export default function ProductsPage() {
           <SearchBar onSearch={getProducts} />
         </View>
       </View>
-      <ProductsListContainer products={products} />
+      {isLoading ? <ActivityIndicator style={{
+        marginTop: 100,
+        alignItems: 'center',
+      }} size={150} /> 
+      : products.length > 0 ? <ProductsListContainer products={products} />
+      : <View style={{
+        marginTop: 100,
+        alignItems: 'center',
+      }}>
+          <ThemedText>No products found</ThemedText>
+        </View>}
     </ThemedView>
   );
 }
