@@ -8,6 +8,7 @@ export default function ThemedAccordion({ children, title, style, ...rest }: Lis
     return (
         <List.Accordion
             title={typeof title === 'string' ? <ThemedText>{title}</ThemedText> : title}
+            titleNumberOfLines={100}
             style={[
                 { backgroundColor },
                 style
@@ -21,7 +22,7 @@ export default function ThemedAccordion({ children, title, style, ...rest }: Lis
 
 export function ThemedListItem({ title }: ListItemProps) {
     if (typeof title === 'string') {
-        return <List.Item title={<ThemedText>{title}</ThemedText>} />
+        return <List.Item style={{flexWrap: "wrap"}} titleNumberOfLines={100} title={<ThemedText lineBreakMode="head" >{title}</ThemedText>} />
     }
 
     return (
