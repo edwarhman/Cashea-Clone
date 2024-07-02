@@ -29,7 +29,7 @@ export default function ProductsPage() {
         marginTop: 100,
         alignItems: 'center',
       }} size={150} /> 
-      : products.length > 0 ? <ProductsListContainer products={products} />
+      : products.length > 0 ? <ProductsListContainer numColumns={2} products={products} />
       : <View style={{
         marginTop: 100,
         alignItems: 'center',

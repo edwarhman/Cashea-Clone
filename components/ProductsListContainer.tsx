@@ -3,20 +3,28 @@ import ProductCard from './ProductCard'
 
 export type ProductList = {
     products: any[]
+    numColumns?: number
 }
 
 
 export default function ProductsList ({
-  products
+  products,
+  numColumns = 1
 } : ProductList) {
   if (products == null) return 
   
   return (
     <FlatList
       data={products}
+      numColumns={numColumns}
+      ItemSeparatorComponent={() => < View style={{width: 10}} />}
+      columnWrapperStyle={ numColumns > 1 ? styles.columnWrapper : undefined }
       renderItem={({item: product}) => (
-        <View style={styles.listItem} key={product.id}>
-          <ProductCard bordered product={product} />
+        <View style={[
+          { width: `${100 / numColumns}%` },
+          styles.listItem
+        ]} key={product.id}> 
+          <ProductCard product={product} />
         </View>
       )}
     />
@@ -24,7 +32,10 @@ export default function ProductsList ({
 }
 
 const styles = StyleSheet.create({
+  columnWrapper: {
+    gap: 10
+  },
   listItem: {
-    marginBottom: 18,
+    flexShrink: 1,
   }
 })
