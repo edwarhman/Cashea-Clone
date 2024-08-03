@@ -3,7 +3,6 @@ import { StyleSheet, View } from "react-native";
 import { ThemedView } from "@/components/ThemedView";
 import SearchBar from "@/components/SearchBar";
 import useProducts from "@/hooks/useProducts";
-import { useEffect } from "react";
 import BackButton from "@/components/BackButton";
 import { ActivityIndicator } from "react-native-paper";
 import { ThemedText } from "@/components/ThemedText";
@@ -12,10 +11,6 @@ export default function ProductsPage() {
   const { products, getProducts, isLoading } = useProducts({
     itemsPerPage: 25
   });
-
-  useEffect(() => {
-    getProducts({search: ''});
-  }, []);
 
   return (
     <ThemedView style={styles.container}>

@@ -1,5 +1,5 @@
 import { API_URL } from "@/constants/API";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 type QueryOptions = {
@@ -16,6 +16,10 @@ export default function useProducts({
   const [currentPage, setPage] = useState(page);
   const [itemsPerEachPage, setItemsPerPage] = useState(itemsPerPage);
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    getProducts({search: ''});
+  }, []);
 
   function getProducts({search} : {search: string}) { 
     setLoading(true);
