@@ -18,6 +18,12 @@ This project is developed using React Native, Expo and the Free Platzi's API to 
     npx expo start
    ```
 
+3. Web build
+
+   ```bash
+    npm run build-web
+   ```
+
 In the output, you'll find options to open the app in a
 
 - [development build](https://docs.expo.dev/develop/development-builds/introduction/)
